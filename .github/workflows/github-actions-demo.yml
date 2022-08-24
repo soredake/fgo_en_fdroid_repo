@@ -1,0 +1,34 @@
+name: GitHub Actions Demo
+on:
+  schedule:
+    # run it every three days
+    #- cron: "0 0 */3 * *"
+    # daily
+    - cron: "0 8 * * *"
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      #- run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      #- run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      #- run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      #- name: List files in the repository
+      #  run: |
+      #    ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: sudo apt update -y
+      - run: sudo apt-get install -y fdroidserver
+      - run: | 
+          cd ${{ github.workspace }}/repo
+          curl -OJL $(curl -s https://fate-grand-order.ru.uptodown.com/android/download | grep "button download" | sed -n 's/.*href="\([^"]*\).*/\1/p')
+      - run: fdroid update --create-metadata
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "commit test"
+          git push -f origin main:apks
