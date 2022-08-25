@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Download F/GO english apk and push it to fdroid repo in apks branch
 on:
   schedule:
     # run it every three days
