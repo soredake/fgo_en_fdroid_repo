@@ -21,7 +21,7 @@ jobs:
       - run: sudo apt-get install -y fdroidserver
       - run: | 
           cd ${{ github.workspace }}/repo
-          curl -OJL $(curl -s https://fate-grand-order.ru.uptodown.com/android/download | grep "button download" | sed -n 's/.*href="\([^"]*\).*/\1/p')
+          curl -OJL $(curl -s https://fate-grand-order.ru.uptodown.com/android/download | sed -n 's/.*href="\([^"]*\).*/\1/p' | grep dw.uptodown.com)
       - run: fdroid update --create-metadata
       - run: |
           git config user.name github-actions
