@@ -1,0 +1,34 @@
+{
+  "/etc/issue.net": "Ubuntu 22.04.1 LTS",
+  "commandLine": [
+    "/usr/bin/fdroid update",
+    "--create-metadata"
+  ],
+  "fdroiddata": {
+    "commitId": "b82d02b7fa7ca228e2366a167f848a3b50a979e2",
+    "isDirty": true,
+    "modifiedFiles": [
+      "repo/categories.txt",
+      "repo/icons/fdroid-icon.png",
+      "repo/index-v1.jar",
+      "repo/index-v1.json",
+      "repo/index.jar",
+      "repo/index.xml"
+    ],
+    "untrackedFiles": [
+      "repo/fate-grand-order-2-40-4.apk",
+      "repo/icons-120/com.aniplex.fategrandorder.en.167.png",
+      "repo/icons-160/com.aniplex.fategrandorder.en.167.png",
+      "repo/icons-240/com.aniplex.fategrandorder.en.167.png",
+      "repo/icons-320/com.aniplex.fategrandorder.en.167.png",
+      "repo/icons-480/com.aniplex.fategrandorder.en.167.png",
+      "repo/icons-640/com.aniplex.fategrandorder.en.167.png",
+      "repo/icons/com.aniplex.fategrandorder.en.167.png",
+      "repo/index.css",
+      "repo/index.html",
+      "repo/index.png"
+    ]
+  },
+  "startTimestamp": 1673341587000,
+  "subcommand": "update"
+}
