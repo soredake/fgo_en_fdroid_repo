@@ -14,7 +14,7 @@ jobs:
       #  run: |
       #    ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: sudo snap remove $(snap list | awk '!/^Name|^core/ {print $1}')
+      #- run: sudo snap remove $(snap list | awk '!/^Name|^core/ {print $1}')
       - run: sudo apt remove --purge --assume-yes snapd
       - run: sudo apt update -y; sudo apt upgrade -y
       - run: sudo apt-get install -y fdroidserver
