@@ -17,7 +17,7 @@ jobs:
       #- run: sudo snap remove $(snap list | awk '!/^Name|^core/ {print $1}')
       - run: sudo apt remove --purge --assume-yes snapd
       # trying to fix https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1931335 https://bugs.launchpad.net/ubuntu/+source/grub2/+bug/1872077
-      - run: sudo apt remove --purge --assume-yes grub\*
+      - run: sudo apt remove --purge --assume-yes grub\*; sudo apt install -y grub-efi; sudo apt -y autoremove; sudo update-grub
       - run: sudo apt update -y; sudo apt upgrade -y
       - run: sudo apt-get install -y fdroidserver
       - name: cd to repo and download apk
