@@ -16,8 +16,8 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       #- run: sudo snap remove $(snap list | awk '!/^Name|^core/ {print $1}')
       - run: sudo apt remove --purge --assume-yes snapd
-      # trying to fix https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1931335 https://bugs.launchpad.net/ubuntu/+source/grub2/+bug/1872077
-      - run: sudo apt remove --purge --assume-yes grub\*; sudo apt install -y grub-efi; sudo apt -y autoremove; sudo update-grub
+      # trying to fix https://github.com/orgs/community/discussions/47863 https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1931335 https://bugs.launchpad.net/ubuntu/+source/grub2/+bug/1872077
+      - run: sudo apt-mark hold grub-efi-amd64-signed; sudo apt-get update -y --fix-missing
       - run: sudo apt update -y; sudo apt upgrade -y
       - run: sudo apt-get install -y fdroidserver
       - name: cd to repo and download apk
